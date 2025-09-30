@@ -63,6 +63,8 @@ height: 100vh;
 
 .layout > footer {
   grid-area: side_area foot_lay;
+  display: flex;
+  justify-content: center;
   border-top: 1px solid var(--border-color);
   background-color: #f0f0f0;
   padding: var(--space);
@@ -108,5 +110,142 @@ footer ul li:not(:last-child)::after {
     display: none;
   }
 
+}
+
+/* Override any rounded corners - make everything sharp/square */
+* {
+  border-radius: 0 !important;
+}
+
+article {
+  border-radius: 0 !important;
+  overflow: visible !important;
+}
+
+article > main > img {
+  border-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* Form styling overrides */
+input, textarea, button {
+  border-radius: 0 !important;
+}
+
+.form_lay {
+  padding: var(--space);
+  max-width: 600px;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space);
+  grid-auto-rows: auto;
+}
+
+.question {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--space);
+  align-items: start;
+}
+
+.question label {
+  color: rgb(25, 118, 210);
+  font-weight: 500;
+  font-size: 14px;
+  justify-self: start;
+  align-self: center;
+}
+
+.question input,
+.question textarea {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  font-size: 14px;
+  font-family: inherit;
+  justify-self: stretch;
+  border-radius: 0 !important;
+}
+
+.question input:focus,
+.question textarea:focus {
+  outline: none;
+  border-color: rgb(25, 118, 210);
+}
+
+.question textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.radio-group {
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+  gap: 16px;
+  align-items: center;
+}
+
+
+
+.radio-group label {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  color: inherit;
+  font-weight: normal;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.question:has(input[type="checkbox"]) {
+  grid-template-columns: 200px 1fr;
+  align-items: start;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.checkbox-container label {
+  color: inherit !important;
+  font-weight: normal !important;
+ 
+}
+
+.form-buttons {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 12px;
+  justify-content: start;
+  margin-top: var(--space);
+}
+
+.form-buttons button {
+  padding: 10px 20px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  border-radius: 0 !important;
+}
+
+.form-buttons button[type="submit"] {
+  background-color: rgb(25, 118, 210);
+  color: white;
+}
+
+.form-buttons button[type="reset"] {
+  background-color: #f0f0f0;
+  color: #333;
 }
 

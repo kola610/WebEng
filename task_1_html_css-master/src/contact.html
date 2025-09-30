@@ -10,10 +10,13 @@
     <script src="./main.ts" type="module"></script>
   </head>
   <body>
+
+     <div class="layout">
     <header>
       <h1>Contact</h1>
     </header>
 
+    <div class="side">
     <section>
       <ul>
         <li>
@@ -38,13 +41,73 @@
         </li>
       </ul>
     </section>
+    </div>
 
     <main>
-      <!--      TODO add form here-->
+      <form>
+        
+        <div class="form_lay">
+
+          <div class="question">
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Jane Doe">
+          </div>
+
+          <div class="question">
+            <label for="email">Email address</label>
+            <input id="email" type="email" placeholder="jane.doe@example.com">
+          </div>
+
+          <div class="question">
+            <label for="birthday">Birthday</label>
+            <input id="birthday" type="date" placeholder="tt.mm.jjjj">
+          </div>
+
+          <div class="question">
+            <label>What do you like the most?</label>
+            <div class="radio-group">
+              <input type="radio" id="js" name="preference" value="js">
+              <label for="js">JS</label>
+              
+              <input type="radio" id="html" name="preference" value="html">
+              <label for="html">HTML</label>
+              
+              <input type="radio" id="css" name="preference" value="css">
+              <label for="css">CSS</label>
+              
+              <input type="radio" id="undecided" name="preference" value="undecided" checked>
+              <label for="undecided">Cannot make a decision.</label>
+            </div>
+          </div>
+
+          <div class="question">
+            <label for="message">Your message</label>
+            <textarea id="message" placeholder="Enter your message here..."></textarea>
+          </div>
+
+          
+
+          <div class="question">
+            <div></div>
+            <div class="checkbox-container">
+              <input type="checkbox" id="spam">
+              <label for="spam">Yes, I want to receive your very important spam messages!</label>
+            </div>
+          </div>
+
+          <div class="form-buttons">
+            <button type="submit">Send</button>
+            <button type="reset">Reset</button>
+          </div>
+
+        </div>
+      </form>
     </main>
 
     <footer>
       <div>Made with <i class="fa-solid fa-heart"></i> by David Sichau</div>
     </footer>
+
+    </div>
   </body>
 </html>
