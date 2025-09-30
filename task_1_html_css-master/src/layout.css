@@ -87,3 +87,26 @@ ul {
 body {
   padding: 0px;
 }
+
+footer ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  
+}
+
+footer ul li:not(:last-child)::after {
+  content: "|";
+  right: -100%;
+  color: #b2a7a7;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+
+  .side span {
+    display: none;
+  }
+
+}
+
