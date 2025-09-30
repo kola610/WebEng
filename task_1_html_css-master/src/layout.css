@@ -104,13 +104,7 @@ footer ul li:not(:last-child)::after {
   position: relative;
 }
 
-@media (max-width: 768px) {
 
-  .side span {
-    display: none;
-  }
-
-}
 
 /* Override any rounded corners - make everything sharp/square */
 * {
@@ -201,12 +195,16 @@ input, textarea, button {
 }
 
 .question:has(input[type="checkbox"]) {
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 1fr 1.5fr;
   align-items: start;
 }
 
+
+
 .checkbox-container {
-  display: flex;
+  display: grid;
+  justify-items: left;
+  grid-template-columns: 1fr 40fr;
   align-items: center;
   gap: 8px;
 }
@@ -222,11 +220,17 @@ input, textarea, button {
  
 }
 
+.formula {
+
+  display: grid;
+  grid-template-columns: 1fr 5.5fr;
+}
+
 .form-buttons {
   display: grid;
   grid-template-columns: auto auto;
   gap: 12px;
-  justify-content: start;
+  justify-content: center;
   margin-top: var(--space);
 }
 
@@ -247,5 +251,78 @@ input, textarea, button {
 .form-buttons button[type="reset"] {
   background-color: #f0f0f0;
   color: #333;
+}
+
+@media (max-width: 768px) {
+
+  .side span {
+    display: none;
+  }
+
+  .question {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 8px;
+    align-items: start;
+  }
+
+  .question label {
+    justify-self: start;
+    align-self: start;
+  }
+
+  .question input,
+  .question textarea {
+    justify-self: stretch;
+    width: 100%;
+  }
+
+  /* Handle radio groups in mobile */
+  .radio-group {
+    display: grid;
+    justify-items: left;
+    grid-template-columns: 15px 1fr
+   
+  }
+
+  .radio-group label {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+  }
+
+.question:has(.checkbox-container) {
+  grid-template-columns: auto 1fr !important;
+}
+
+ 
+  .question:first-child:has(.checkbox-container) {
+    display: none;
+  }
+
+  .checkbox-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+
+ 
+
+  /* Adjust form buttons for mobile */
+  .form-buttons {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .form-buttons button {
+    width: 100%;
+  }
+
+  .formula {
+
+  display: grid;
+  grid-template-columns: 0px 5.5fr;
+}
+
 }
 
