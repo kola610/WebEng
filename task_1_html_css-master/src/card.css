@@ -1,9 +1,14 @@
-
 .article_row {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
+  gap: 5px;
   flex-direction: row;
+
+
+  
+  transform: scale(0.6);
+  transform-origin: top left;
+  width: 125%; /* compensate so it still spans viewport */
 }
 
 header {
@@ -32,9 +37,6 @@ header {
   color: #c4c3c3;
 }
 
-
-
-
 article {
   display: flex;
   flex-direction: column;
@@ -55,26 +57,13 @@ article {
   & main {
     padding: var(--space);
     width: inherit;
-    
 
-   
-
-  
-
-   &> img {
-    width: 100%;
-    
-    object-fit: cover;   
-    display: block;      
+    & > img {
+      width: 100%;
+      object-fit: cover;   
+      display: block;      
+    }
   }
-
-
-  }
-
-    
-
-  /* make the image fill main */
- 
 
   & footer {
     border-top: 1px solid var(--border-color);
@@ -111,6 +100,23 @@ article:not(:has(> footer)):not(:has(> header)) {
   }
 }
 
+/* Ensure flex items stack properly and remain visible */
+@media (max-width: 100vw) {
+  .article_row {
+  
 
+    flex-direction: column; 
+    align-items: stretch; 
+    gap: 5px;
+  }
 
+  article {
 
+    width: 100%;
+  }
+
+  body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-y: auto; /* Allow vertical scrolling */
+  }
+}
