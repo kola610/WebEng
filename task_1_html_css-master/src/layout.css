@@ -72,6 +72,16 @@ height: 100vh;
   margin: 0;
 }
 
+
+
+  .side span {
+    display: none
+  }
+
+  .side:hover span {
+    display: inline;
+  }
+
 .side {
   display: flex;
   justify-content: flex-start;
@@ -323,6 +333,68 @@ input, textarea, button {
   display: grid;
   grid-template-columns: 0px 5.5fr;
 }
+
+}
+
+/* Hide the checkbox controls */
+.img-control {
+  display: none;
+}
+
+/* Make the main container relative for positioning */
+article main {
+  position: relative;
+}
+
+/* Invisible overlay that covers the image for clicking */
+.img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 1;
+}
+
+
+.clickable-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: all 1s ease;
+}
+
+main:has(#img-control-1:checked) .img-1 { animation: imageFlash 0.5s; }
+
+
+main:has(#img-control-2:checked) .img-2 { animation: imageFlash 0.5s; }
+
+main:has(#img-control-3:checked) .img-3 { animation: imageFlash 0.5s; }
+
+
+
+
+main:has(#img-control-1:checked) .img-1 {
+  content: url('https://picsum.photos/250/300?random=1');
+}
+
+main:has(#img-control-2:checked) .img-2 {
+  content: url('https://picsum.photos/250/300?random=2');
+}
+
+main:has(#img-control-3:checked) .img-3 {
+  content: url('https://picsum.photos/250/300?random=3');
+}
+
+
+
+
+/* Animation keyframes */
+@keyframes imageFlash {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(2) contrast(1.5); }
+  100% { filter: brightness(1); }
 
 }
 
