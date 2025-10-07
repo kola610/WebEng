@@ -95,14 +95,19 @@ body > main {
       color: #999;
     }
 
-    &.active.asc::after {
+    &.asc::after {
       font-family: FontAwesome;
       content: "\f0d8";
     }
 
-    &.active.desc::after {
+    &.desc::after {
       font-family: FontAwesome;
       content: "\f0d7";
     }
   }
+}
+
+/* Kill marker glyphs in browsers that still render them */
+ul li::marker {
+  content: "" !important;
 }
