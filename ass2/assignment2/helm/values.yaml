@@ -1,0 +1,10 @@
+image:
+  name: ""
+  tag: ""
+build:
+  job_id: ""
+  commit: ""
+url:
+  hostname:
+    base_uri: "webdev-25.ivia.isginf.ch"
+    uri: ""

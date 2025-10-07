@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - {{ .Values.url.hostname.uri }}.{{ .Values.url.hostname.base_uri }}
+      secretName: {{ .Release.Name }}-tls
+  rules:
+  - host: {{ .Values.url.hostname.uri }}.{{ .Values.url.hostname.base_uri }}
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Release.Name }}-webapp
+            port:
+              number: 80

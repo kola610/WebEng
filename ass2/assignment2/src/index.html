@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Open data explorer</title>
+
+  <script src="ts/main.ts" type="module"></script>
+</head>
+<body>
+<nav class="container-fluid">
+  <ul>
+    <li><h1>Open data explorer</h1></li>
+  </ul>
+</nav>
+
+<main class="container-fluid">
+  <article>
+    <header>
+      <h2>Select csv data</h2>
+    </header>
+    <form id="select-data-form">
+      <label for="file-input" class="custom-file-upload">
+        <i class="fa fa-file-csv"></i> Select csv file to explore
+      </label>
+      <input
+              id="file-input"
+              type="file"
+              aria-describedby="fileHelp"
+              accept="text/csv"
+      />
+      <small id="fileHelp"
+      >Please upload a csv file, where the first row is the header. And the values are comma(,) seperated.</small
+      >
+    </form>
+  </article>
+
+  <article>
+    <header>
+      <h2>Data infos</h2>
+    </header>
+    <div id="data-info"></div>
+  </article>
+
+  <article>
+    <header>
+      <h2>Selected column infos</h2>
+    </header>
+    <div id="column-info"></div>
+  </article>
+
+  <article>
+    <header>
+      <h2>Filter active column</h2>
+    </header>
+    <label for="filter">Filter column:</label><input type="search" id="filter" name="filter" placeholder="Filter" disabled>
+  </article>
+
+  <article style="width: 100%">
+    <header>
+      <h2>Data table</h2>
+    </header>
+    <figure id="table-content"></figure>
+  </article>
+</main>
+</body>
+</html>
