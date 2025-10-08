@@ -265,7 +265,7 @@ const createTable = async (data: CSV_Data): Promise<void> => {
       }
     });
 
-    tempHTML.dataset.key = String(key); // preserve exact object key
+    tempHTML.dataset['key'] = String(key); // preserve exact object key
     tempHTML.textContent = key;
     tr_head.appendChild(tempHTML);
   }
@@ -297,7 +297,7 @@ const createTable = async (data: CSV_Data): Promise<void> => {
       return;
     }
 
-    const colKey = filterHeader.dataset.key; // exact key
+    const colKey = filterHeader.dataset['key']; // exact key
     if (!colKey) {
       console.warn("Filterable header missing data-key");
       return;
@@ -315,7 +315,7 @@ const createTable = async (data: CSV_Data): Promise<void> => {
 
     // 
     
-    
+
     filtered.forEach((row) => appendRow(row));
   });
 };
